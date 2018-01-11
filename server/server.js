@@ -419,18 +419,20 @@ app.post('/multipleKeys',adminAuthenticate , (req, res) => {
 //   admin
 // --------------------------------
 
-app.post('/registerAdmin', (req, res) => {
-  var body = _.pick(req.body, ['username', 'password']);
-  var admin = new Admin(body);
+// app.post('/registerAdmin', (req, res) => {
+//   var body = _.pick(req.body, ['username', 'password']);
+//   var admin = new Admin(body);
 
-  admin.save().then(() => {
-    return admin.generateAuthToken();
-  }).then((token) => {
-    res.header('x-auth', token).send({token,admin});
-  }).catch((e) => {
-    res.status(400).send(e);
-  })
-});
+//   admin.save().then(() => {
+//     return admin.generateAuthToken();
+//   }).then((token) => {
+//     res.header('x-auth', token).send({token,admin});
+//   }).catch((e) => {
+//     res.status(400).send(e);
+//   })
+// });
+
+
 
 app.post('/loginAdmin', (req, res) => {
   var body = _.pick(req.body, ['username', 'password']);
